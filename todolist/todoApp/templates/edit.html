@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РґРµР»Рѕ{% endblock %}
+
+{% block content %}
+<h2 class="mt-3">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РґРµР»Рѕ</h2>
+<form method="POST">
+    <form method="post" action="{% url 'edit' task.id %}">
+        {% csrf_token %}
+        <div class="row mt-3">
+            <div class="col">
+                <label for="title" class="form-label">Р—Р°РіРѕР»РѕРІРѕРє:</label>
+                <input type="text" class="form-control border-dark" name="title" id="title" required
+                    style="max-width: 300px;" value="{{ task.title }}">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="description" class="form-label">РћРїРёСЃР°РЅРёРµ:</label>
+                <input type="text" class="form-control border-dark" name="description" id="description" required
+                    style="max-width: 300px;" value="{{ task.title }}">
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-dark mt-3" value="РЎРѕС…СЂР°РЅРёС‚СЊ">
+    </form>
+    <a class="btn btn-dark mt-3" href="{% url 'list' %}">РќР°Р·Р°Рґ</a>
+</form>
+{% endblock %}

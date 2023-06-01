@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}РЎРїРёСЃРѕРє{% endblock %}
+
+{% block content %}
+<h2 class="mt-3">РЎРїРёСЃРѕРє</h2>
+<div class="list-group mt-3">
+    {% for task in tasks %}
+    <div class="card mt-3">
+        <div class="card-header">
+            {{ task.title }}
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ task.description }}</p>
+            <a href="{% url 'edit' task.id %}" class="btn btn-secondary">Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ</a>
+            <a href="{% url 'delete' task.id %}" class="btn btn-dark">РЈРґР°Р»РёС‚СЊ</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
